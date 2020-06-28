@@ -1,0 +1,13 @@
+{
+	"name": "affiliate-ui",
+	"dependencies": {
+		"create-react-class": "^15.6.3",
+		"react": "16.13.0",
+		"react-dom": "16.13.0",
+		"react-semantic-ui-datepickers": "^2.8.0-beta.0",
+		"semantic-ui-react": "^0.88.2"
+	},
+	"devDependencies": {
+		"shadow-cljs": "2.9.3"
+	}
+}

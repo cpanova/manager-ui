@@ -20,7 +20,8 @@
                  [com.cemerick/url "0.1.1"]
                  [metosin/komponentit "0.3.10"]]
 
-  :plugins [[lein-shadow "0.2.0"]
+  :plugins [
+            ; [lein-shadow "0.2.0"]
 
             [lein-shell "0.5.0"]]
 
@@ -35,22 +36,14 @@
                              :macosx  "open"
                              :linux   "xdg-open"}}}
 
-  :shadow-cljs {:nrepl {:port 8777}
-
-                :builds {:app {:target :browser
-                               :output-dir "resources/public/js/compiled"
-                               :asset-path "/js/compiled"
-                               :modules {:app {:init-fn affiliate-ui.core/init
-                                               :preloads [devtools.preload]}}
-
-                               :devtools {:http-root "resources/public"
-                                          :http-port 8280}
-                               :dev {:closure-defines {affiliate-ui.config/URL "http://localhost:8000"}}}}}
-
   :aliases {"dev"          ["with-profile" "dev" "do"
-                            ["shadow" "watch" "app"]]
+                            ["run" "-m" "shadow.cljs.devtools.cli" "watch" "app"]]
             "prod"         ["with-profile" "prod" "do"
-                            ["shadow" "release" "app"]]
+                            ["run" "-m" "shadow.cljs.devtools.cli" "release" "app"]]
+            ; "dev"          ["with-profile" "dev" "do"
+            ;                 ["shadow" "watch" "app"]]
+            ; "prod"         ["with-profile" "prod" "do"
+            ;                 ["shadow" "release" "app"]]
             "build-report" ["with-profile" "prod" "do"
                             ["shadow" "run" "shadow.cljs.build-report" "app" "target/build-report.html"]
                             ["shell" "open" "target/build-report.html"]]

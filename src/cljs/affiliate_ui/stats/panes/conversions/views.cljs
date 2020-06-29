@@ -49,6 +49,7 @@
       [sa/TableHeaderCell {:text-align "center"} "sub4"]
       [sa/TableHeaderCell {:text-align "center"} "sub5"]
       [sa/TableHeaderCell {:text-align "center"} "User Agent"]
+      [sa/TableHeaderCell {:text-align "center"} "Comment"]
       [sa/TableHeaderCell {:text-align "center"} "ID"]]]
     [sa/TableBody
      (for [conversion @(rf/subscribe [::subs/conversions])]
@@ -60,7 +61,12 @@
         [sa/TableCell {:text-align "center"}
          [:div (:country conversion)]
          (:ip conversion)]
-        [sa/TableCell {:text-align "center"} (:status conversion)]
+        [sa/TableCell {:text-align "center"}
+         (case (:status conversion)
+               "approved" [sa/Label {:color "green" :size "small"} (:status conversion)]
+               "hold"     [sa/Label {:color "grey" :size "small"}  (:status conversion)]
+               "rejected" [sa/Label {:color "red" :size "small"}   (:status conversion)]
+               (:status conversion))]
         [sa/TableCell {:text-align "right"}
          (gstring/format "%.2f"(:payout conversion))
          " "
@@ -78,5 +84,7 @@
                     :position "left center"
                     :trigger (r/as-element
                               [sa/Button {:size "mini" :class "basic" :icon "eye"}])}]]
+        [sa/TableCell {:text-align "center"}
+         (:comment conversion)]
         [sa/TableCell {:text-align "center"}
          (:click_id conversion)]])]]])

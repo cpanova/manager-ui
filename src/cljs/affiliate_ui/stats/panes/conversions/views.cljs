@@ -58,12 +58,12 @@
          (str "(" (get-in conversion [:offer :id]) ")" " ")
          (get-in conversion [:offer :title])]
         [sa/TableCell {:text-align "center"}
-         [:div (get-in conversion [:country :code])]
+         [:div (:country conversion)]
          (:ip conversion)]
         [sa/TableCell {:text-align "center"} (:status conversion)]
         [sa/TableCell {:text-align "right"}
          (gstring/format "%.2f"(:payout conversion))
-         " " 
+         " "
          (get-in conversion [:currency :code])]
         [sa/TableCell {:text-align "center"} (:goal conversion)]
         [sa/TableCell {:text-align "center"} (or (:sub1 conversion) "-")]
@@ -72,7 +72,7 @@
         [sa/TableCell {:text-align "center"} (or (:sub4 conversion) "-")]
         [sa/TableCell {:text-align "center"} (or (:sub5 conversion) "-")]
         [sa/TableCell {:text-align "center"}
-         [sa/Popup {:content (:user_agent conversion)
+         [sa/Popup {:content (:ua conversion)
                     :mouse-leave-delay 500
                     :on "click"
                     :position "left center"

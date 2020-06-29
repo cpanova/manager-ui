@@ -4,7 +4,7 @@
 (def state-key ::offers-stats)
 
 
-(def defaults {:date [(js/Date.) (js/Date.)]})
+(def defaults {})
                ; :data [{:offer "(1) LeonBets"
                ;         :clicks 100
                ;         :total_conversions 10 :approved_conversions 8 :hold_conversions 1 :rejected_conversions 1

@@ -4,7 +4,7 @@
 (def state-key ::conversions)
 
 
-(def defaults {:date [(js/Date.) (js/Date.)]})
+(def defaults {})
                ; :data [{:id "5ebea4476a10750001cd6998"
                ;         :created_at "2020-05-15 17:20:21"
                ;         :offer {:id 1 :title "Gratorama [SK] CPL"}

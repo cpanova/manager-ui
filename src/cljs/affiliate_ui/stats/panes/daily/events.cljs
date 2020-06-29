@@ -4,7 +4,8 @@
    [ajax.core :as ajax]
    [affiliate-ui.config :as cfg]
    [affiliate-ui.stats.panes.daily.db :refer [state-key]]
-   [affiliate-ui.stats.utils :refer [format-js-date]]))
+   [affiliate-ui.stats.utils :refer [format-js-date]]
+   [affiliate-ui.stats.db :as stats-db]))
 
 
 (rf/reg-event-db
@@ -19,8 +20,8 @@
   (fn [cofx _]
       (let [auth (:local-store cofx)
             db (:db cofx)
-            params {:start_date (format-js-date (first  (get-in db [state-key :date])))
-                    :end_date   (format-js-date (second (get-in db [state-key :date])))}]
+            params {:start_date (format-js-date (first  (get-in db [stats-db/state-key :date])))
+                    :end_date   (format-js-date (second (get-in db [stats-db/state-key :date])))}]
            {:http-xhrio  {:method          :get
                           :uri             (str cfg/URL "/affiliate/stats/daily/")
                           :params          params
@@ -39,4 +40,4 @@
 (rf/reg-event-db
   ::set-date
   (fn [db [_ date]]
-    (assoc-in db [state-key :date] date)))
+    (assoc-in db [stats-db/state-key :date] date)))

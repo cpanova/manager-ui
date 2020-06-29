@@ -20,6 +20,7 @@
       (let [db (:db cofx)
             set-panel (assoc db :active-panel active-panel)]
            (case active-panel
+                 :root-panel {:redirect-to (url-for :stats :report "daily")}
                  :offers-panel {:db set-panel
                                 ; :dispatch [:affiliate-ui.offers.events/init-offers]
                                 :dispatch [:affiliate-ui.offers.events/load-offers]}

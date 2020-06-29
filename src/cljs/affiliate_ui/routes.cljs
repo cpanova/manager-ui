@@ -9,7 +9,8 @@
    [cemerick.url]))
 
 
-(def routes ["/" {["stats/" :report] :stats
+(def routes ["/" {"" :root
+                  ["stats/" :report] :stats
                   ; ["campaign/" :id "/edit"] :campaign-edit
                   ["offer/" :id] :offer
                   ; ["campaign/" :id "/js-code"] :js-code

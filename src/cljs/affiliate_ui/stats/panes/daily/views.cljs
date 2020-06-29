@@ -4,7 +4,9 @@
    [soda-ash.core :as sa]
    [affiliate-ui.views.datepicker :refer [Datepicker]]
    [affiliate-ui.stats.panes.daily.subs :as subs]
-   [affiliate-ui.stats.panes.daily.events :as events]))
+   [affiliate-ui.stats.panes.daily.events :as events]
+   [goog.string :as gstring]
+   [goog.string.format]))
 
 
 (defn daily-pane []
@@ -86,7 +88,7 @@
           [sa/TableCell {:text-align "right"} (:approved_qty row)]
           [sa/TableCell {:text-align "right"} (:hold_qty row)]
           [sa/TableCell {:text-align "right"} (:rejected_qty row)]
-          [sa/TableCell {:text-align "right"} (:total_payout row)]
-          [sa/TableCell {:text-align "right"} (:approved_payout row)]
-          [sa/TableCell {:text-align "right"} (:hold_payout row)]
-          [sa/TableCell {:text-align "right"} (:rejected_payout row)]])]]]]])
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:total_payout row))]
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:approved_payout row))]
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:hold_payout row))]
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:rejected_payout row))]])]]]]])

@@ -5,7 +5,9 @@
    [soda-ash.core :as sa]
    [affiliate-ui.stats.panes.conversions.subs :as subs]
    [affiliate-ui.stats.panes.conversions.events :as events]
-   [affiliate-ui.views.datepicker :refer [Datepicker]]))
+   [affiliate-ui.views.datepicker :refer [Datepicker]]
+   [goog.string :as gstring]
+   [goog.string.format]))
 
 
 (defn conversions-pane []
@@ -59,7 +61,10 @@
          [:div (get-in conversion [:country :code])]
          (:ip conversion)]
         [sa/TableCell {:text-align "center"} (:status conversion)]
-        [sa/TableCell {:text-align "right"} (:payout conversion) " " (get-in conversion [:currency :code])]
+        [sa/TableCell {:text-align "right"}
+         (gstring/format "%.2f"(:payout conversion))
+         " " 
+         (get-in conversion [:currency :code])]
         [sa/TableCell {:text-align "center"} (:goal conversion)]
         [sa/TableCell {:text-align "center"} (or (:sub1 conversion) "-")]
         [sa/TableCell {:text-align "center"} (or (:sub2 conversion) "-")]

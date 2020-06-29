@@ -65,7 +65,7 @@
          (gstring/format "%.2f"(:payout conversion))
          " "
          (get-in conversion [:currency :code])]
-        [sa/TableCell {:text-align "center"} (:goal conversion)]
+        [sa/TableCell {:text-align "center"} (get-in conversion [:goal :name])]
         [sa/TableCell {:text-align "center"} (or (:sub1 conversion) "-")]
         [sa/TableCell {:text-align "center"} (or (:sub2 conversion) "-")]
         [sa/TableCell {:text-align "center"} (or (:sub3 conversion) "-")]

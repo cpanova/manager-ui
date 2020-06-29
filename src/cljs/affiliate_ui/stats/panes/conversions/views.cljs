@@ -79,4 +79,4 @@
                     :trigger (r/as-element
                               [sa/Button {:size "mini" :class "basic" :icon "eye"}])}]]
         [sa/TableCell {:text-align "center"}
-         (:id conversion)]])]]])
+         (:click_id conversion)]])]]])

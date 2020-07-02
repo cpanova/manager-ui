@@ -17,7 +17,7 @@
 (defn nav []
   [:div.ui.fixed.menu
    [:div.ui.container
-    [:span.item "CPA Network"]
+    [:span.item "CPA Nova"]
     [:a.item {:href (url-for :offers)} "Offers"]
     [:a.item {:href (url-for :stats :report "daily")} "Statistics"]
     [:div.right.menu

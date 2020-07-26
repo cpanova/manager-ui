@@ -21,9 +21,6 @@
     [:a.item {:href (url-for :offers)} "Offers"]
     [:a.item {:href (url-for :stats :report "daily")} "Statistics"]
     [:div.right.menu
-     [:a.item {:href (str  "https://teleg.run/" cfg/TELEGRAM_ID)
-               :target "_blank"}
-      [sa/Icon {:name "send"}] "Support"]
      [:a.item {:on-click #(rf/dispatch [::events/logout])} "Logout"]]]])
 
 

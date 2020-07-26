@@ -52,16 +52,4 @@
          [:p "Wrong email/password"]]]
 
        [sa/Message
-        [:span "New to us? "] [:a {:href (url-for :sign-up)} "Sign Up"]]
-
-       [:div
-        [:p "Support: "
-         [:a.item {:href (str  "https://teleg.run/" cfg/TELEGRAM_ID)
-                   :target "_blank"}
-          [sa/Icon {:name "send"}]
-          cfg/TELEGRAM_ID]]]]]]))
-         ; " "
-         ; [:a.item {:href (str  "mailto:" cfg/EMAIL)
-         ;           :target "_blank"}
-         ;  [sa/Icon {:name "mail"}]
-         ;  cfg/EMAIL]]]]]]))
+        [:span "New to us? "] [:a {:href (url-for :sign-up)} "Sign Up"]]]]]))

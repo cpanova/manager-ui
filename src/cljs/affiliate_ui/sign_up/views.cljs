@@ -58,11 +58,4 @@
          [:p @(rf/subscribe [::subs/error-message])]]]
 
        [:div.ui.message
-        [:span "Have an account? "] [:a {:href (url-for :login)} "Login"]]
-
-       [:div
-        [:p "Support: "
-         [:a.item {:href (str  "https://teleg.run/" cfg/TELEGRAM_ID)
-                   :target "_blank"}
-          [sa/Icon {:name "send"}]
-          cfg/TELEGRAM_ID]]]]]]))
+        [:span "Have an account? "] [:a {:href (url-for :login)} "Login"]]]]]))

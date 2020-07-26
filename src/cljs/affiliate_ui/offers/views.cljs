@@ -23,6 +23,7 @@
      [sa/TableHeader
       [sa/TableRow
        [sa/TableHeaderCell "ID"]
+       [sa/TableHeaderCell ""]
        [sa/TableHeaderCell "Offer"]
        [sa/TableHeaderCell "Payout"]
        [sa/TableHeaderCell "Geo"]
@@ -32,6 +33,16 @@
       (for [offer @(rf/subscribe [::subs/offers])]
         [sa/TableRow {:key (:id offer)}
          [sa/TableCell (:id offer)]
+         [sa/TableCell {:style {:width "100px"
+                                :padding "0"}
+                        :width 100}
+
+          [:img {:height 100
+                 :width 100
+                 :style {:border-radius "10px"
+                         :border "2px solid silver"
+                         :object-fit "cover"}
+                 :src (:icon offer)}]]
          [sa/TableCell [:a {:href (url-for :offer :id (:id offer))} (:title offer)]]
          [sa/TableCell
           [:div

@@ -4,7 +4,8 @@
    [affiliate-ui.views.nav :refer [nav]]
    [soda-ash.core :as sa]
    [affiliate-ui.offer.subs :as subs]
-   [affiliate-ui.offer.events]))
+   [affiliate-ui.offer.events]
+   [hickory.core :as hickory]))
 
 
 (defn offer-panel []
@@ -20,7 +21,7 @@
 
       [sa/Segment
        [:h4 "Information"]
-       [:div (:description offer)]
+       [:div (map hickory/as-hiccup (hickory/parse-fragment (:description_html offer)))]
 
        [:h4 "Tracking Link"]
        [sa/Input {:value @(rf/subscribe [::subs/tracking-link])

@@ -18,7 +18,8 @@
                                org.clojure/clojurescript]]
                  ; [com.andrewmcveigh/cljs-time "0.5.2"]
                  [com.cemerick/url "0.1.1"]
-                 [metosin/komponentit "0.3.10"]]
+                 [metosin/komponentit "0.3.10"]
+                 [hickory "0.7.1"]]
 
   :plugins [
             ; [lein-shadow "0.2.0"]

@@ -9,6 +9,7 @@
    [affiliate-ui.stats.panes.daily.views :refer [daily-pane]]
    [affiliate-ui.stats.panes.conversions.views :refer [conversions-pane]]
    [affiliate-ui.stats.panes.offers.views :refer [offers-pane]]
+   [affiliate-ui.stats.panes.goals.views :refer [goals-pane]]
    [affiliate-ui.stats.subs :as subs]
    [affiliate-ui.stats.events :as events]))
 
@@ -32,7 +33,10 @@
                        [conversions-pane])}
             {:menuItem "Offers"
              :render #(r/as-element
-                       [offers-pane])}])
+                       [offers-pane])}
+            {:menuItem "Goals"
+             :render #(r/as-element
+                       [goals-pane])}])
 
 
 (defn stats-panel []

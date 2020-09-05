@@ -5,9 +5,9 @@
  :builds {:app {:target :browser,
                 :output-dir "resources/public/js/compiled",
                 :asset-path "/js/compiled",
-                :modules {:app {:init-fn affiliate-ui.core/init,
+                :modules {:app {:init-fn manager-ui.core/init,
                                 :preloads [devtools.preload]}},
                 :devtools {:http-root "resources/public",
                            :http-port 8280}
                 :compiler-options {:optimizations :advanced}
-                :dev {:closure-defines {affiliate-ui.config/URL #shadow/env "API_URL"}}}},}
+                :dev {:closure-defines {manager-ui.config/URL #shadow/env "API_URL"}}}},}

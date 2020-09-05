@@ -1,5 +1,5 @@
 {
-	"name": "affiliate-ui",
+	"name": "manager-ui",
 	"dependencies": {
 		"create-react-class": "^15.6.3",
 		"react": "16.13.0",

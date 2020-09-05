@@ -9,6 +9,7 @@
    [manager-ui.stats.panes.daily.views :refer [daily-pane]]
    ; [manager-ui.stats.panes.conversions.views :refer [conversions-pane]]
    [manager-ui.stats.panes.offers.views :refer [offers-pane]]
+   [manager-ui.stats.panes.affiliates.views :refer [affiliates-pane]]
    ; [manager-ui.stats.panes.goals.views :refer [goals-pane]]
    ; [manager-ui.stats.panes.subid.views :refer [subid-pane]]
    [manager-ui.stats.subs :as subs]
@@ -34,7 +35,10 @@
             ;            [conversions-pane])}
             {:menuItem "Offers"
              :render #(r/as-element
-                       [offers-pane])}])
+                       [offers-pane])}
+            {:menuItem "Affiliates"
+             :render #(r/as-element
+                       [affiliates-pane])}])
             ; {:menuItem "Goals"
             ;  :render #(r/as-element
             ;            [goals-pane])}

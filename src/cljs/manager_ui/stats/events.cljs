@@ -21,6 +21,8 @@
                         :dispatch-n [
                                      ; [:manager-ui.stats.panes.offers.events/init]
                                      [:manager-ui.stats.panes.offers.events/load-offers-stats]]}
+              "affiliates" {:db set-report
+                            :dispatch [:manager-ui.stats.panes.affiliates.events/load-affiliates-stats]}
               ; "goals" {:db set-report
               ;          :dispatch-n [
               ;                        ; [:manager-ui.stats.panes.offers.events/init]

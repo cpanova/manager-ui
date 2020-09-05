@@ -1,14 +1,14 @@
-(ns manager-ui.stats.panes.offers.views
+(ns manager-ui.stats.panes.affiliates.views
   (:require
    [re-frame.core :as rf]
    [soda-ash.core :as sa]
-   [manager-ui.stats.panes.offers.subs :as subs]
-   [manager-ui.stats.panes.offers.events :as events]
+   [manager-ui.stats.panes.affiliates.subs :as subs]
+   [manager-ui.stats.panes.affiliates.events :as events]
    [manager-ui.views.datepicker :refer [Datepicker]]
    [goog.string :as gstring]
    [goog.string.format]))
 
-(defn offers-pane []
+(defn affiliates-pane []
   [:div
    [:div {:class "ui segments"}
     [sa/Segment {:class "primary"} "Filter"]
@@ -26,7 +26,7 @@
       [sa/GridRow
        [sa/GridColumn {:width 4}
         [sa/Button {:class "primary"
-                    :on-click #(rf/dispatch [::events/load-offers-stats])}
+                    :on-click #(rf/dispatch [::events/load-affiliates-stats])}
          "Filter"]]]]]]
 
    [:div {:class "ui segments"}
@@ -39,7 +39,7 @@
       [sa/TableHeader
        [sa/TableRow
         [sa/TableHeaderCell {:row-span 2}
-         "Offer"]
+         "Affiliate"]
         [sa/TableHeaderCell  {:row-span 2
                               :text-align "right"}
          "Clicks"]
@@ -71,8 +71,8 @@
         [sa/TableHeaderCell {:text-align "right"} "Profit"]]]
       [sa/TableBody
        (for [row @(rf/subscribe [::subs/data])]
-         [sa/TableRow {:key (:offer_id row)}
-          [sa/TableCell (str "(" (:offer_id row) ") " (:offer_title row))]
+         [sa/TableRow {:key (:affiliate_id row)}
+          [sa/TableCell (str "(" (:affiliate_id row) ") " (:affiliate_name row))]
           [sa/TableCell {:text-align "right"} (:clicks row)]
           [sa/TableCell {:text-align "right"} (:approved_qty row)]
           [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:approved_revenue row))]

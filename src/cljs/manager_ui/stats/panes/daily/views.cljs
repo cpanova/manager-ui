@@ -18,7 +18,7 @@
       [sa/GridRow
        [sa/GridColumn {:width 4}
         [Datepicker {:placeholder "Dates"
-                     :size 4
+                     ; :size "small"
                      :type "range"
                      :on-change #(rf/dispatch [::events/set-date (. %2 -value)])
                      :date-picker-only true
@@ -64,31 +64,45 @@
         [sa/TableHeaderCell  {:row-span 2
                               :text-align "right"}
          "Clicks"]
+        [sa/TableHeaderCell  {:col-span 2
+                              :text-align "center"}
+         "Approved"]
+        [sa/TableHeaderCell  {:col-span 2
+                              :text-align "center"}
+         "Hold"]
+        [sa/TableHeaderCell  {:col-span 2
+                              :text-align "center"}
+         "Rejected"]
+        [sa/TableHeaderCell  {:row-span 2
+                              :text-align "right"}
+         "CR"]
         [sa/TableHeaderCell  {:col-span 4
                               :text-align "center"}
-         "Conversions"]
-        [sa/TableHeaderCell  {:col-span 4
-                              :text-align "center"}
-         "Payout"]]
+         "Total"]]
        [sa/TableRow
-        [sa/TableHeaderCell {:text-align "right"} "Total"]
-        [sa/TableHeaderCell {:text-align "right"} "Approved"]
-        [sa/TableHeaderCell {:text-align "right"} "Hold"]
-        [sa/TableHeaderCell {:text-align "right"} "Rejected"]
-        [sa/TableHeaderCell {:text-align "right"} "Total"]
-        [sa/TableHeaderCell {:text-align "right"} "Approved"]
-        [sa/TableHeaderCell {:text-align "right"} "Hold"]
-        [sa/TableHeaderCell {:text-align "right"} "Rejected"]]]
+        [sa/TableHeaderCell {:text-align "right"} "QTY"]
+        [sa/TableHeaderCell {:text-align "right"} "Revenue"]
+        [sa/TableHeaderCell {:text-align "right"} "QTY"]
+        [sa/TableHeaderCell {:text-align "right"} "Revenue"]
+        [sa/TableHeaderCell {:text-align "right"} "QTY"]
+        [sa/TableHeaderCell {:text-align "right"} "Revenue"]
+        [sa/TableHeaderCell {:text-align "right"} "QTY"]
+        [sa/TableHeaderCell {:text-align "right"} "Revenue"]
+        [sa/TableHeaderCell {:text-align "right"} "Payouts"]
+        [sa/TableHeaderCell {:text-align "right"} "Profit"]]]
       [sa/TableBody
        (for [row @(rf/subscribe [::subs/data])]
          [sa/TableRow {:key (:date row)}
-          [sa/TableCell (:date row)]
+          [sa/TableCell (:day row)]
           [sa/TableCell {:text-align "right"} (:clicks row)]
-          [sa/TableCell {:text-align "right"} (:total_qty row)]
           [sa/TableCell {:text-align "right"} (:approved_qty row)]
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:approved_revenue row))]
           [sa/TableCell {:text-align "right"} (:hold_qty row)]
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:hold_revenue row))]
           [sa/TableCell {:text-align "right"} (:rejected_qty row)]
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:rejected_revenue row))]
+          [sa/TableCell {:text-align "right"} (str (:cr row) "%")]
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:total_qty row))]
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:total_revenue row))]
           [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:total_payout row))]
-          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:approved_payout row))]
-          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:hold_payout row))]
-          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:rejected_payout row))]])]]]]])
+          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:total_profit row))]])]]]]])

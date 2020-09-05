@@ -81,7 +81,7 @@
           [sa/TableCell {:text-align "right"} (:rejected_qty row)]
           [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:rejected_revenue row))]
           [sa/TableCell {:text-align "right"} (str (:cr row) "%")]
-          [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:total_qty row))]
+          [sa/TableCell {:text-align "right"} (:total_qty row)]
           [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:total_revenue row))]
           [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:total_payout row))]
           [sa/TableCell {:text-align "right"} (gstring/format "%.2f" (:total_profit row))]])]]]]])
